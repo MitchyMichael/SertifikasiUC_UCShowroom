@@ -16,6 +16,8 @@ struct AddOrderView: View {
         NavigationStack {
             VStack {
                 HStack (alignment: .top){
+                    
+                    // Form Input
                     VStack (alignment: .leading){
                         HStack {
                             Text("Name :")
@@ -42,6 +44,7 @@ struct AddOrderView: View {
                     }
                 }
                 
+                // Add Button
                 Button {
                     viewModel.addCustomer(
                         newCustomerName: viewModel.name,

@@ -11,6 +11,7 @@ class EditCustomerViewModel : ObservableObject {
     
     @Published private var serverApi = CustomerServerApi()
     
+    // To update customer
     func updateCustomerData(newCustomerId: Int, newCustomerName: String, newCustomerAddress: String, newCustomerPhoneNumber: Double, newCustomerIdCard: Double) {
         
         let push = Customer(

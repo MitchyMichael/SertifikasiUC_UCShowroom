@@ -21,6 +21,8 @@ struct EditCustomerView: View {
         NavigationStack {
             VStack {
                 HStack (alignment: .top){
+                    
+                    // Edit form
                     VStack (alignment: .leading){
                         HStack {
                             Text("Name :")
@@ -47,6 +49,7 @@ struct EditCustomerView: View {
                     }
                 }
                 
+                // Save Button
                 Button {
                     viewModel.updateCustomerData(
                         newCustomerId: id,

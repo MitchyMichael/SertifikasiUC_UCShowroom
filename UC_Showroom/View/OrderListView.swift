@@ -16,7 +16,11 @@ struct OrderListView: View {
         NavigationStack {
             ScrollView {
                 VStack (alignment: .leading){
+                    
+                    // Customer List View
                     ForEach(api.customers) { customer in
+                        
+                        // If clicked ...
                         NavigationLink(destination: CustomerDetailView(
                             customerId: customer.id,
                             customerName: customer.name,
@@ -44,7 +48,7 @@ struct OrderListView: View {
                     }
                 }
                 .onAppear(){
-                    Text("testing")
+                    // Get all customer data from API
                     api.getAllCustomerData()
                 }
                 
@@ -56,11 +60,6 @@ struct OrderListView: View {
                         isNewOrder = true
                     } label: {
                         Text("New Order")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: SeeAllVehicleView()) {
-                        Text("Ordered Vehicle")
                     }
                 }
             }

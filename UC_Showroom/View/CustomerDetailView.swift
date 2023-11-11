@@ -8,35 +8,51 @@
 import SwiftUI
 
 struct CustomerDetailView: View {
-    @StateObject private var viewModel = CustomerDetailViewModel()
-    @State var isEdit = false
     
     @Environment(\.dismiss) private var dismiss
     
-    var customerId, customerName, customerAddress, customerPhone, customerIdCard: String
+    @StateObject private var api = CustomerServerApi()
+    @StateObject private var viewModel = CustomerDetailViewModel()
+    
+    @State var isEdit = false
+    @State var totalPrice = 0
+    @State var customerId: String
+    
+    var customerName, customerAddress, customerPhone, customerIdCard: String
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
+                    
+                    // Customer Detail
                     VStack (alignment: .leading) {
                         Text("Id: \(customerId)")
                         Text("Name: \(customerName)")
                         Text("Address: \(customerAddress)")
                         Text("Phone: \(customerPhone)")
                         Text("ID Card: \(customerIdCard)")
-                        Text("")
-                        Text("Vehicles:")
                             .padding(.bottom)
+                        
+                        ForEach(api.totalPrice) { total in
+                            Text("Total Price: \(total.total_price)")
+                        }
                     }
                     Spacer()
                 }
                 .padding()
                 
-                NavigationLink(destination: AddVehicleView(thisCustomerId: Int(customerId)!)) {
+                // To add vehicle
+                NavigationLink(destination: AddVehicleView(thisCustomerId: Int(customerId) ?? 0)) {
                     Text("Add Vehicle")
                 }
                 
+                // To see customer's order
+                NavigationLink(destination: SeeCustomerOrderView(newCustomerId: Int(customerId) ?? 0)) {
+                    Text("See Customer Order")
+                }
+                
+                // To delete customer
                 Button (role: .destructive){
                     viewModel.deleteData(customerId: Int(customerId)!)
                     let newView = OrderListView()
@@ -57,6 +73,11 @@ struct CustomerDetailView: View {
                     }
                 }
             }
+        }
+        .onAppear() {
+            
+            // Get total price from API
+            api.getTotalPriceByCustomerId(customerId: Int(customerId) ?? 0)
         }
         .sheet(isPresented: $isEdit, content: {
             EditCustomerView(id: Int(customerId)!, newName: customerName, newAddress: customerAddress, newPhoneNumber: Double(customerPhone) ?? 0, newIdCard: Double(customerIdCard) ?? 0)

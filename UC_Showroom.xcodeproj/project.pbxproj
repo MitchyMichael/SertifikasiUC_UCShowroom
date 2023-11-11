@@ -27,8 +27,10 @@
 		FCB608D82AFF7E0400AD82BC /* VehicleServerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608D72AFF7E0400AD82BC /* VehicleServerApi.swift */; };
 		FCB608DA2AFF7E8D00AD82BC /* VehicleServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608D92AFF7E8D00AD82BC /* VehicleServerResponse.swift */; };
 		FCB608DC2AFF849D00AD82BC /* AddVehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608DB2AFF849D00AD82BC /* AddVehicleViewModel.swift */; };
-		FCB608DE2AFF895500AD82BC /* SeeAllVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608DD2AFF895500AD82BC /* SeeAllVehicleView.swift */; };
-		FCB608E02AFF906100AD82BC /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608DF2AFF906100AD82BC /* VehicleDetailView.swift */; };
+		FCB608E72AFFE3F500AD82BC /* SeeCustomerOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608E62AFFE3F500AD82BC /* SeeCustomerOrderView.swift */; };
+		FCB608E92B00084F00AD82BC /* EditCustomerOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608E82B00084F00AD82BC /* EditCustomerOrderView.swift */; };
+		FCB608EC2B000D6C00AD82BC /* VehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608EB2B000D6C00AD82BC /* VehicleType.swift */; };
+		FCB608EE2B000FD600AD82BC /* EditCustomerOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +55,10 @@
 		FCB608D72AFF7E0400AD82BC /* VehicleServerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleServerApi.swift; sourceTree = "<group>"; };
 		FCB608D92AFF7E8D00AD82BC /* VehicleServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleServerResponse.swift; sourceTree = "<group>"; };
 		FCB608DB2AFF849D00AD82BC /* AddVehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewModel.swift; sourceTree = "<group>"; };
-		FCB608DD2AFF895500AD82BC /* SeeAllVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllVehicleView.swift; sourceTree = "<group>"; };
-		FCB608DF2AFF906100AD82BC /* VehicleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailView.swift; sourceTree = "<group>"; };
+		FCB608E62AFFE3F500AD82BC /* SeeCustomerOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeCustomerOrderView.swift; sourceTree = "<group>"; };
+		FCB608E82B00084F00AD82BC /* EditCustomerOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderView.swift; sourceTree = "<group>"; };
+		FCB608EB2B000D6C00AD82BC /* VehicleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleType.swift; sourceTree = "<group>"; };
+		FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				FCB608AD2AFEF54100AD82BC /* View */,
 				FCB608AE2AFEF54900AD82BC /* ViewModel */,
 				FCB608AF2AFEF55000AD82BC /* Server */,
+				FCB608EA2B000D4700AD82BC /* Enum */,
 				FCB608992AFEF24900AD82BC /* UC_ShowroomApp.swift */,
 				FCB6089B2AFEF24900AD82BC /* ContentView.swift */,
 				FCB6089D2AFEF24A00AD82BC /* Assets.xcassets */,
@@ -123,11 +128,11 @@
 			children = (
 				FCB608BC2AFF179A00AD82BC /* OrderListView.swift */,
 				FCB608CB2AFF362900AD82BC /* CustomerDetailView.swift */,
+				FCB608E62AFFE3F500AD82BC /* SeeCustomerOrderView.swift */,
 				FCB608CF2AFF532600AD82BC /* EditCustomerView.swift */,
 				FCB608C02AFF1BFA00AD82BC /* AddOrderView.swift */,
 				FCB608CD2AFF3D9B00AD82BC /* AddVehicleView.swift */,
-				FCB608DD2AFF895500AD82BC /* SeeAllVehicleView.swift */,
-				FCB608DF2AFF906100AD82BC /* VehicleDetailView.swift */,
+				FCB608E82B00084F00AD82BC /* EditCustomerOrderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				FCB608DB2AFF849D00AD82BC /* AddVehicleViewModel.swift */,
 				FCB608D12AFF550D00AD82BC /* EditCustomerViewModel.swift */,
 				FCB608D32AFF5BEA00AD82BC /* CustomerDetailViewModel.swift */,
+				FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -168,6 +174,14 @@
 				FCB608D92AFF7E8D00AD82BC /* VehicleServerResponse.swift */,
 			);
 			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		FCB608EA2B000D4700AD82BC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				FCB608EB2B000D6C00AD82BC /* VehicleType.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +265,9 @@
 				FCB608DC2AFF849D00AD82BC /* AddVehicleViewModel.swift in Sources */,
 				FCB608C12AFF1BFA00AD82BC /* AddOrderView.swift in Sources */,
 				FCB608D42AFF5BEB00AD82BC /* CustomerDetailViewModel.swift in Sources */,
+				FCB608EE2B000FD600AD82BC /* EditCustomerOrderViewModel.swift in Sources */,
+				FCB608EC2B000D6C00AD82BC /* VehicleType.swift in Sources */,
 				FCB608D02AFF532700AD82BC /* EditCustomerView.swift in Sources */,
-				FCB608E02AFF906100AD82BC /* VehicleDetailView.swift in Sources */,
 				FCB6089C2AFEF24900AD82BC /* ContentView.swift in Sources */,
 				FCB6089A2AFEF24900AD82BC /* UC_ShowroomApp.swift in Sources */,
 				FCB608D82AFF7E0400AD82BC /* VehicleServerApi.swift in Sources */,
@@ -261,10 +276,11 @@
 				FCB608BF2AFF1AE700AD82BC /* AddOrderViewModel.swift in Sources */,
 				FCB608BD2AFF179A00AD82BC /* OrderListView.swift in Sources */,
 				FCB608DA2AFF7E8D00AD82BC /* VehicleServerResponse.swift in Sources */,
+				FCB608E72AFFE3F500AD82BC /* SeeCustomerOrderView.swift in Sources */,
 				FCB608CC2AFF362900AD82BC /* CustomerDetailView.swift in Sources */,
 				FCB608CA2AFF2C8000AD82BC /* CustomerServerResponse.swift in Sources */,
+				FCB608E92B00084F00AD82BC /* EditCustomerOrderView.swift in Sources */,
 				FCB608CE2AFF3D9B00AD82BC /* AddVehicleView.swift in Sources */,
-				FCB608DE2AFF895500AD82BC /* SeeAllVehicleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

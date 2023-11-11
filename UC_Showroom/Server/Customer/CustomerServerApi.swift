@@ -11,7 +11,9 @@ import Alamofire
 class CustomerServerApi : ObservableObject {
     @Published var customer: Customer?
     @Published var customers: [NewCustomer] = []
+    @Published var totalPrice: [TotalPrice] = []
     
+    // To delete customer
     func deleteData(inputId: Int) {
         print("Masuk delete")
         AF.request("http://localhost/uc_showroom_backend/customers/delete.php?id=\(inputId)", method: .delete).responseData { response in
@@ -31,6 +33,7 @@ class CustomerServerApi : ObservableObject {
         }
     }
     
+    // To update customer
     func updateData(customer: Customer) {
         print(customer)
         
@@ -50,6 +53,7 @@ class CustomerServerApi : ObservableObject {
         }
     }
     
+    // To create customer
     func createCustomerData(customer: Customer) {
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(customer.name.data(using: .utf8)!, withName: "name")
@@ -69,6 +73,7 @@ class CustomerServerApi : ObservableObject {
         }
     }
     
+    // To get all customer data
     func getAllCustomerData() {
         AF.request("http://localhost/uc_showroom_backend/customers/read.php", method: .get).responseData { response in
             print(response)
@@ -81,6 +86,27 @@ class CustomerServerApi : ObservableObject {
                     return
                 }
                 self.customers = decodedData.data
+            case .failure (let failure):
+                print(failure)
+                return
+            }
+        }
+    }
+    
+    // To get total price for customer
+    func getTotalPriceByCustomerId(customerId: Int) {
+        AF.request("http://localhost/uc_showroom_backend/customers/getTotalPrice.php?id=\(customerId)", method: .get).responseData { response in
+            print(response)
+            
+            switch response.result {
+            case .success(let success):
+                print("Disini \(success)")
+                guard let decodedData = try? JSONDecoder().decode(TotalPriceResponse.self, from: success) else {
+                    print("Failed to retrieve data")
+                    return
+                }
+                self.totalPrice = decodedData.data
+                print(self.totalPrice)
             case .failure (let failure):
                 print(failure)
                 return

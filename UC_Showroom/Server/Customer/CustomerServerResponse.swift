@@ -22,3 +22,13 @@ struct SingleCustomerResponse : Codable {
     let message: String
     let data: NewCustomer?
 }
+
+struct TotalPriceResponse: Codable {
+    let status: Int
+    let message: String
+    let data: [TotalPrice]
+}
+
+struct TotalPrice: Codable, Identifiable {
+    let id = 0, total_price: String
+}

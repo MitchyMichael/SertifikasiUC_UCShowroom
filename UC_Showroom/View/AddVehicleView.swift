@@ -14,17 +14,12 @@ struct AddVehicleView: View {
     
     @State var thisCustomerId: Int
     
-    @State var fuelType = ""
-    @State var trunkSize = 0
-    @State var numberOfWheels = 0
-    @State var cargoAreaSize = 0
-    @State var luggageSize = 0
-    @State var fuelCapacity = 0
-    
     var body: some View {
         NavigationStack {
             VStack {
                 HStack (alignment: .top){
+                    
+                    // Input form
                     VStack (alignment: .leading){
                         HStack {
                             Text("Type :")
@@ -66,39 +61,39 @@ struct AddVehicleView: View {
                         if viewModel.selectedType.rawValue == "Car" {
                             HStack {
                                 Text("Fuel Type :")
-                                TextField("Fuel Type", text: $fuelType)
+                                TextField("Fuel Type", text: $viewModel.fuelType)
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
                             HStack {
                                 Text("Trunk Size :")
-                                TextField("Trunk size", value: $trunkSize, formatter: NumberFormatter())
+                                TextField("Trunk size", value: $viewModel.trunkSize, formatter: NumberFormatter())
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
                         } else if viewModel.selectedType.rawValue == "Truck" {
                             HStack {
                                 Text("Number of Wheels :")
-                                TextField("Number of wheels", value: $numberOfWheels, formatter: NumberFormatter())
+                                TextField("Number of wheels", value: $viewModel.numberOfWheels, formatter: NumberFormatter())
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
                             HStack {
                                 Text("Cargo Area Size :")
-                                TextField("Cargo area size", value: $cargoAreaSize, formatter: NumberFormatter())
+                                TextField("Cargo area size", value: $viewModel.cargoAreaSize, formatter: NumberFormatter())
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
                         } else if viewModel.selectedType.rawValue == "Motorcycle" {
                             HStack {
                                 Text("Luggage Size :")
-                                TextField("Luggage size", value: $luggageSize, formatter: NumberFormatter())
+                                TextField("Luggage size", value: $viewModel.luggageSize, formatter: NumberFormatter())
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
                             HStack {
                                 Text("Fuel Capacity :")
-                                TextField("Fuel Capacity", value: $cargoAreaSize, formatter: NumberFormatter())
+                                TextField("Fuel Capacity", value: $viewModel.cargoAreaSize, formatter: NumberFormatter())
                                     .autocorrectionDisabled()
                                     .keyboardType(.numberPad)
                             }
@@ -106,16 +101,47 @@ struct AddVehicleView: View {
                     }
                 }
                 
+                // Save Button
                 Button {
-                    viewModel.addVehicle(
-                        newCustomerId: thisCustomerId,
-                        newType: viewModel.selectedType.rawValue,
-                        newModel: viewModel.model,
-                        newYear: viewModel.year,
-                        newPassengerCount: viewModel.passengerCount,
-                        newManufacturer: viewModel.manufacturer,
-                        newPrice: viewModel.price
-                    )
+                    if viewModel.selectedType.rawValue == "Car" {
+                        viewModel.addCar(
+                            newCustomerId: thisCustomerId,
+                            newType: viewModel.selectedType.rawValue,
+                            newModel: viewModel.model,
+                            newYear: viewModel.year,
+                            newPassengerCount: viewModel.passengerCount,
+                            newManufacturer: viewModel.manufacturer,
+                            newPrice: viewModel.price,
+                            newFuelType: viewModel.fuelType,
+                            newTrunkSize: Double(viewModel.trunkSize)
+                        )
+                    } else if viewModel.selectedType.rawValue == "Truck" {
+                        viewModel.addTruck(
+                            newCustomerId: thisCustomerId,
+                            newType: viewModel.selectedType.rawValue,
+                            newModel: viewModel.model,
+                            newYear: viewModel.year,
+                            newPassengerCount: viewModel.passengerCount,
+                            newManufacturer: viewModel.manufacturer,
+                            newPrice: viewModel.price,
+                            newNumberOfWheels: viewModel.numberOfWheels,
+                            newCargoSizeArea: Double(viewModel.cargoAreaSize))
+                    } else if viewModel.selectedType.rawValue == "Motorcycle" {
+                        viewModel.addMotor(
+                            newCustomerId: thisCustomerId,
+                            newType: viewModel.selectedType.rawValue,
+                            newModel: viewModel.model,
+                            newYear: viewModel.year,
+                            newPassengerCount: viewModel.passengerCount,
+                            newManufacturer: viewModel.manufacturer,
+                            newPrice: viewModel.price,
+                            newLuggageSize: Double(viewModel.luggageSize),
+                            newFuelCapacity: Double(viewModel.fuelCapacity)
+                            )
+                    }
+                    
+                    
+                    
                     dismiss()
                 } label: {
                     Text("Add Vehicle")

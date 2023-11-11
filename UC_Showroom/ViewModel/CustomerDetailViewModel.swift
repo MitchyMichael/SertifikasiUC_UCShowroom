@@ -9,11 +9,13 @@ import Foundation
 
 class CustomerDetailViewModel : ObservableObject {
     
-    @Published private var serverApi = CustomerServerApi()
+    @Published var serverApi = CustomerServerApi()
     
+    // To delete customer
     func deleteData(customerId: Int) {
         var thisInputId = customerId
         print("This ID is deleted \(thisInputId)")
         serverApi.deleteData(inputId: thisInputId)
     }
+    
 }

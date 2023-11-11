@@ -16,6 +16,7 @@ class AddOrderViewModel : ObservableObject {
     @Published var phone: Double = 0
     @Published var idNum: Double = 0
     
+    // To add customer
     func addCustomer(newCustomerName: String, newCustomerAddress: String, newCustomerPhoneNumber: Double, newCustomerIdCard: Double) {
         
         let push = Customer(
