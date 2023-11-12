@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EditCustomerOrderView: View {
     
-    @StateObject private var api = VehicleServerApi()
     @StateObject private var viewModel = EditCustomerOrderViewModel()
     
     @State var newVehicleId: String
