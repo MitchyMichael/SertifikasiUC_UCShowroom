@@ -36,4 +36,43 @@ struct Motorcycle : Encodable {
     let fuelCapacity: Double
 }
 
+struct ThisCar : Encodable {
+    let id: String
+    let customerId: String
+    let type: String
+    let model: String
+    let year: Int
+    let passengers: Int
+    let manufacturer: String
+    let price: Double
+    let fuelType: String
+    let trunkSize: Double
+}
+
+struct ThisTruck : Encodable {
+    let id: String
+    let customerId: String
+    let type: String
+    let model: String
+    let year: Int
+    let passengers: Int
+    let manufacturer: String
+    let price: Double
+    let numberOfWheels: Int
+    let cargoAreaSize: Double
+}
+
+struct ThisMotorcycle : Encodable {
+    let id: String
+    let customerId: String
+    let type: String
+    let model: String
+    let year: Int
+    let passengers: Int
+    let manufacturer: String
+    let price: Double
+    let luggageSize: Double
+    let fuelCapacity: Double
+}
+
 

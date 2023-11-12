@@ -29,13 +29,30 @@ class VehicleServerApi : ObservableObject {
         }
     }
     
-    // To update car
-    func updateCar(vehicle: Car) {
+    func updateVehicle(vehicle: Vehicle) {
         print(vehicle)
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(vehicle)
         
-        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.baseInfo.id)", method: .put)
+        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.id)", method: .put)
+        .response { response in
+            switch response.result {
+            case .success(let success):
+                let stringDecoded = String(data: success!, encoding: .utf8)
+                print(stringDecoded)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
+    
+    // To update car
+    func updateCar(vehicle: ThisCar) {
+        print(vehicle)
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(vehicle)
+        
+        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.id)", method: .put)
         .response { response in
             switch response.result {
             case .success(let success):
@@ -48,12 +65,12 @@ class VehicleServerApi : ObservableObject {
     }
     
     // To update truck
-    func updateTruck(vehicle: Truck) {
+    func updateTruck(vehicle: ThisTruck) {
         print(vehicle)
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(vehicle)
         
-        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.baseInfo.id)", method: .put)
+        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.id)", method: .put)
         .response { response in
             switch response.result {
             case .success(let success):
@@ -66,12 +83,12 @@ class VehicleServerApi : ObservableObject {
     }
     
     // To update motorcycle
-    func updateMotor(vehicle: Motorcycle) {
+    func updateMotor(vehicle: ThisMotorcycle) {
         print(vehicle)
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(vehicle)
         
-        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.baseInfo.id)", method: .put)
+        AF.upload(jsonData!, to: "http://localhost/uc_showroom_backend/vehicles/update.php?id=\(vehicle.id)", method: .put)
         .response { response in
             switch response.result {
             case .success(let success):

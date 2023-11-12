@@ -106,52 +106,13 @@ struct EditCustomerOrderView: View {
                 // Save Button
                 Button {
                     if newType == "Car" {
-                        let newCar = Car(baseInfo: Vehicle(
-                            id: "",
-                            customerId: newCustomerId,
-                            type: newType,
-                            model: newModel,
-                            year: newYear,
-                            passengers: newPassengerCount,
-                            manufacturer: newManufacturer,
-                            price: Double(newPrice) ?? 0),
-                                         
-                            fuelType: viewModel.newFuelType,
-                            trunkSize: Double(viewModel.newTrunkSize))
-                        
-                        api.updateCar(vehicle: newCar)
+                        viewModel.updateCar(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisFuelType: viewModel.newFuelType, thisTrunkSize: viewModel.newTrunkSize)
                         
                     } else if newType == "Truck" {
-                        let newTruck = Truck(baseInfo: Vehicle(
-                            id: "",
-                            customerId: newCustomerId,
-                            type: newType,
-                            model: newModel,
-                            year: newYear,
-                            passengers: newPassengerCount,
-                            manufacturer: newManufacturer,
-                            price: Double(newPrice) ?? 0),
-                                             
-                            numberOfWheels: viewModel.newNumberOfWheels,
-                            cargoAreaSize: Double(viewModel.newCargoAreaSize))
-                        
-                        api.updateTruck(vehicle: newTruck)
+                        viewModel.updateTruck(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisNumberOfWheels: viewModel.newNumberOfWheels, thisCargoAreaSize: viewModel.newCargoAreaSize)
                         
                     } else if newType == "Motorcycle" {
-                        let newMotor = Motorcycle(baseInfo: Vehicle(
-                            id: "",
-                            customerId: newCustomerId,
-                            type: newType,
-                            model: newModel,
-                            year: newYear,
-                            passengers: newPassengerCount,
-                            manufacturer: newManufacturer,
-                            price: Double(newPrice) ?? 0),
-                                                  
-                            luggageSize: Double(viewModel.newLuggageSize),
-                            fuelCapacity: Double(viewModel.newFuelCapacity))
-                        
-                        api.updateMotor(vehicle: newMotor)
+                        viewModel.updateMotor(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisLuggageSize: viewModel.newLuggageSize, thisFuelCapacity: viewModel.newFuelCapacity)
                     }
                 } label: {
                     Text("Save Change")
@@ -160,8 +121,8 @@ struct EditCustomerOrderView: View {
                 // Delete button
                 Button (role: .destructive){
                     let id: Int = Int(newVehicleId) ?? 0
-                    print(id)
-                    api.deleteVehicle(inputId: id)
+                    viewModel.deleteVehicle(inputId: id)
+                    
                     let newView = OrderListView()
                     UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
                 } label: {
