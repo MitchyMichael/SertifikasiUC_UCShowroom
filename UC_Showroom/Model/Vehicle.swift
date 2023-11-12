@@ -36,7 +36,7 @@ struct Motorcycle : Encodable {
     let fuelCapacity: Double
 }
 
-struct ThisCar : Encodable {
+struct ThisCar : Encodable, Identifiable{
     let id: String
     let customerId: String
     let type: String
@@ -49,7 +49,7 @@ struct ThisCar : Encodable {
     let trunkSize: Double
 }
 
-struct ThisTruck : Encodable {
+struct ThisTruck : Encodable, Identifiable {
     let id: String
     let customerId: String
     let type: String
@@ -62,7 +62,7 @@ struct ThisTruck : Encodable {
     let cargoAreaSize: Double
 }
 
-struct ThisMotorcycle : Encodable {
+struct ThisMotorcycle : Encodable , Identifiable{
     let id: String
     let customerId: String
     let type: String

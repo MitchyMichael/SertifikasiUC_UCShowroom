@@ -107,11 +107,20 @@ struct EditCustomerOrderView: View {
                     if newType == "Car" {
                         viewModel.updateCar(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisFuelType: viewModel.newFuelType, thisTrunkSize: viewModel.newTrunkSize)
                         
+                        let newView = OrderListView()
+                        UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
+                        
                     } else if newType == "Truck" {
                         viewModel.updateTruck(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisNumberOfWheels: viewModel.newNumberOfWheels, thisCargoAreaSize: viewModel.newCargoAreaSize)
                         
+                        let newView = OrderListView()
+                        UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
+                        
                     } else if newType == "Motorcycle" {
                         viewModel.updateMotor(newVehicleId: newVehicleId, newCustomerId: newCustomerId, newType: newType, newModel: newModel, newYear: newYear, newPassengerCount: newPassengerCount, newManufacturer: newManufacturer, newPrice: newPrice, thisLuggageSize: viewModel.newLuggageSize, thisFuelCapacity: viewModel.newFuelCapacity)
+                        
+                        let newView = OrderListView()
+                        UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
                     }
                 } label: {
                     Text("Save Change")
@@ -127,7 +136,9 @@ struct EditCustomerOrderView: View {
                 } label: {
                     Text("Delete This Order")
                 }
+                Spacer()
             }
+            .navigationTitle("Edit Order")
         }
     }
 }

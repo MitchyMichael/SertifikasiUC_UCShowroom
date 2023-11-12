@@ -41,6 +41,8 @@ struct OrderListView: View {
                                 }
                                 .padding(.top)
                                 Spacer()
+                                Image(systemName: "arrow.right.to.line")
+                                    .foregroundStyle(.blue)
                             }
                             .foregroundStyle(.black)
                             }
@@ -65,6 +67,7 @@ struct OrderListView: View {
             }
             
         }
+        .preferredColorScheme(.light)
         .sheet(isPresented: $isNewOrder, content: {
             AddOrderView()
                 .onDisappear(){

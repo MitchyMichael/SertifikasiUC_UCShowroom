@@ -152,7 +152,7 @@ struct AddVehicleView: View {
             .padding()
             .navigationTitle("Input Vehicle")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {

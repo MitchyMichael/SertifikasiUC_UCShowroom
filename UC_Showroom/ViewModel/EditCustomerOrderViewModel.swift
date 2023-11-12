@@ -27,7 +27,7 @@ class EditCustomerOrderViewModel : ObservableObject {
     // Function to call API to update car
     func updateCar(newVehicleId: String, newCustomerId: String, newType: String, newModel: String, newYear: Int, newPassengerCount: Int, newManufacturer: String, newPrice: String, thisFuelType: String, thisTrunkSize: Int) {
             let newCar = ThisCar(
-                id: "",
+                id: newVehicleId,
                 customerId: newCustomerId,
                 type: newType,
                 model: newModel,
@@ -44,7 +44,7 @@ class EditCustomerOrderViewModel : ObservableObject {
     // Function to call API to update truck
     func updateTruck(newVehicleId: String, newCustomerId: String, newType: String, newModel: String, newYear: Int, newPassengerCount: Int, newManufacturer: String, newPrice: String, thisNumberOfWheels: Int, thisCargoAreaSize: Int) {
         let newTruck = ThisTruck(
-            id: "", customerId: newCustomerId, type: newType, model: newModel, year: newYear, passengers: newPassengerCount, manufacturer: newManufacturer, price: Double(newPrice) ?? 0, numberOfWheels: thisNumberOfWheels, cargoAreaSize: Double(thisCargoAreaSize))
+            id: newVehicleId, customerId: newCustomerId, type: newType, model: newModel, year: newYear, passengers: newPassengerCount, manufacturer: newManufacturer, price: Double(newPrice) ?? 0, numberOfWheels: thisNumberOfWheels, cargoAreaSize: Double(thisCargoAreaSize))
         
         api.updateTruck(vehicle: newTruck)
     }
@@ -52,7 +52,7 @@ class EditCustomerOrderViewModel : ObservableObject {
     // Function to call API to update motor
     func updateMotor(newVehicleId: String, newCustomerId: String, newType: String, newModel: String, newYear: Int, newPassengerCount: Int, newManufacturer: String, newPrice: String, thisLuggageSize: Int, thisFuelCapacity: Int) {
         let newMotor = ThisMotorcycle(
-            id: "", customerId: newCustomerId, type: newType, model: newModel, year: newYear, passengers: newPassengerCount, manufacturer: newManufacturer, price: Double(newPrice) ?? 0, luggageSize: Double(thisLuggageSize), fuelCapacity: Double(thisFuelCapacity))
+            id: newVehicleId, customerId: newCustomerId, type: newType, model: newModel, year: newYear, passengers: newPassengerCount, manufacturer: newManufacturer, price: Double(newPrice) ?? 0, luggageSize: Double(thisLuggageSize), fuelCapacity: Double(thisFuelCapacity))
         
         api.updateMotor(vehicle: newMotor)
     }

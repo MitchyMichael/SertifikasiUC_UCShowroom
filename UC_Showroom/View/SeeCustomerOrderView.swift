@@ -42,6 +42,8 @@ struct SeeCustomerOrderView: View {
                                 .foregroundStyle(.black)
                             }
                             Spacer()
+                            Image(systemName: "arrow.right.to.line")
+                                .foregroundStyle(.blue)
                         }
                         .padding()
                     }
