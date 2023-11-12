@@ -159,7 +159,11 @@ struct EditCustomerOrderView: View {
                 
                 // Delete button
                 Button (role: .destructive){
-                    api.deleteVehicle(inputId: Int(newVehicleId)!)
+                    let id: Int = Int(newVehicleId) ?? 0
+                    print(id)
+                    api.deleteVehicle(inputId: id)
+                    let newView = OrderListView()
+                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
                 } label: {
                     Text("Delete This Order")
                 }
