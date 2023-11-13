@@ -39,8 +39,11 @@ class VehicleServerApi : ObservableObject {
         .response { response in
             switch response.result {
             case .success(let success):
-                let stringDecoded = String(data: success!, encoding: .utf8)
-                print(stringDecoded)
+                if let data = success, let stringDecoded = String(data: data, encoding: .utf8) {
+                    print(stringDecoded)
+                }
+//                let stringDecoded = String(data: success!, encoding: .utf8)
+//                print(stringDecoded)
             case .failure(let failure):
                 print(failure)
             }
@@ -57,8 +60,11 @@ class VehicleServerApi : ObservableObject {
         .response { response in
             switch response.result {
             case .success(let success):
-                let stringDecoded = String(data: success!, encoding: .utf8)
-                print(stringDecoded)
+                if let data = success, let stringDecoded = String(data: data, encoding: .utf8) {
+                    print(stringDecoded)
+                }
+//                let stringDecoded = String(data: success, encoding: .utf8)
+//                print(stringDecoded)
             case .failure(let failure):
                 print(failure)
             }
@@ -75,8 +81,11 @@ class VehicleServerApi : ObservableObject {
         .response { response in
             switch response.result {
             case .success(let success):
-                let stringDecoded = String(data: success!, encoding: .utf8)
-                print(stringDecoded)
+                if let data = success, let stringDecoded = String(data: data, encoding: .utf8) {
+                    print(stringDecoded)
+                }
+//                let stringDecoded = String(data: success!, encoding: .utf8)
+//                print(stringDecoded)
             case .failure(let failure):
                 print(failure)
             }
@@ -121,7 +130,7 @@ class VehicleServerApi : ObservableObject {
             multipartFormData.append(vehicle.baseInfo.price.description.data(using: .utf8)!, withName: "price")
             
             multipartFormData.append(vehicle.cargoAreaSize.description.data(using: .utf8)!, withName: "cargoAreaSize")
-            multipartFormData.append(vehicle.numberOfWheels.description.data(using: .utf8)!, withName: "wheelCount")
+            multipartFormData.append(vehicle.wheelCount.description.data(using: .utf8)!, withName: "wheelCount")
         }, to: "http://localhost/uc_showroom_backend/vehicles/create.php", method: .post)
         .response { response in
             print("test")

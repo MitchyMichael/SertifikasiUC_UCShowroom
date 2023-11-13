@@ -12,6 +12,8 @@ struct AddOrderView: View {
     @StateObject private var viewModel = AddOrderViewModel()
     @Environment(\.dismiss) private var dismiss
     
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,15 +48,27 @@ struct AddOrderView: View {
                 
                 // Add Button
                 Button {
-                    viewModel.addCustomer(
-                        newCustomerName: viewModel.name,
-                        newCustomerAddress: viewModel.address,
-                        newCustomerPhoneNumber: viewModel.phone,
-                        newCustomerIdCard: viewModel.idNum
-                    )
-                    dismiss()
+                    if viewModel.name != "" && viewModel.address != "" && viewModel.phone != 0 && viewModel.idNum != 0 {
+                        viewModel.addCustomer(
+                            newCustomerName: viewModel.name,
+                            newCustomerAddress: viewModel.address,
+                            newCustomerPhoneNumber: viewModel.phone,
+                            newCustomerIdCard: viewModel.idNum
+                        )
+                        dismiss()
+                    } else {
+                        print("Input not complete")
+                        showAlert = true
+                    }
+                    
                 } label: {
                     Text("Add Customer")
+                }
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Input not complete"),
+                        message: Text("Please complete the form")
+                    )
                 }
                 .padding()
                 Spacer()

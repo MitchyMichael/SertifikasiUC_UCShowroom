@@ -11,6 +11,8 @@ struct EditCustomerView: View {
     @StateObject private var viewModel = EditCustomerViewModel()
     @Environment(\.dismiss) private var dismiss
     
+    @State private var showAlert = false
+    
     @State var id: Int
     @State var newName: String
     @State var newAddress: String
@@ -51,21 +53,34 @@ struct EditCustomerView: View {
                 
                 // Save Button
                 Button {
-                    viewModel.updateCustomerData(
-                        newCustomerId: id,
-                        newCustomerName: newName,
-                        newCustomerAddress: newAddress,
-                        newCustomerPhoneNumber: newPhoneNumber,
-                        newCustomerIdCard: newIdCard)
-                    
-                    let newView = OrderListView()
-                    UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
-                    
-                    dismiss()
+                    if newName != "" && newAddress != "" && newPhoneNumber != 0 && newIdCard != 0 {
+                        
+                        viewModel.updateCustomerData(
+                            newCustomerId: id,
+                            newCustomerName: newName,
+                            newCustomerAddress: newAddress,
+                            newCustomerPhoneNumber: newPhoneNumber,
+                            newCustomerIdCard: newIdCard)
+                        
+                        let newView = OrderListView()
+                        UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
+                        
+                        dismiss()
+                    } else {
+                        print("Input not complete")
+                        showAlert = true
+                    }
                     
                 } label: {
                     Text("Save Customer Edit")
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Input not complete"),
+                        message: Text("Please complete the form")
+                    )
+                }
+
                 .padding()
                 Spacer()
             }

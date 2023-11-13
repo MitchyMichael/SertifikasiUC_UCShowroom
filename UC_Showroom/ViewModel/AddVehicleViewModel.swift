@@ -80,7 +80,7 @@ class AddVehicleViewModel : ObservableObject {
                 passengers: newPassengerCount,
                 manufacturer: newManufacturer,
                 price: newPrice),
-            numberOfWheels: newNumberOfWheels,
+            wheelCount: newNumberOfWheels,
             cargoAreaSize: newCargoSizeArea
         )
         

@@ -26,7 +26,7 @@ struct Car : Encodable {
 
 struct Truck : Encodable {
     let baseInfo: Vehicle
-    let numberOfWheels: Int
+    let wheelCount: Int
     let cargoAreaSize: Double
 }
 
@@ -42,7 +42,7 @@ struct ThisCar : Encodable, Identifiable{
     let type: String
     let model: String
     let year: Int
-    let passengers: Int
+    let passengerCount: Int
     let manufacturer: String
     let price: Double
     let fuelType: String
@@ -55,10 +55,10 @@ struct ThisTruck : Encodable, Identifiable {
     let type: String
     let model: String
     let year: Int
-    let passengers: Int
+    let passengerCount: Int
     let manufacturer: String
     let price: Double
-    let numberOfWheels: Int
+    let wheelCount: Int
     let cargoAreaSize: Double
 }
 
@@ -68,7 +68,7 @@ struct ThisMotorcycle : Encodable , Identifiable{
     let type: String
     let model: String
     let year: Int
-    let passengers: Int
+    let passengerCount: Int
     let manufacturer: String
     let price: Double
     let luggageSize: Double
