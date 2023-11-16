@@ -55,7 +55,7 @@ struct CustomerDetailView: View {
                 // To delete customer
                 Button (role: .destructive){
                     viewModel.deleteData(customerId: Int(customerId)!)
-                    let newView = OrderListView()
+                    let newView = CustomerListView()
                     UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
                 } label: {
                     Text("Delete Customer")

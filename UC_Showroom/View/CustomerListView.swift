@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct OrderListView: View {
+struct CustomerListView: View {
     
+    @StateObject private var viewModel = CustomerListViewModel()
     @StateObject private var api = CustomerServerApi()
     @State private var isNewOrder = false
     
@@ -31,10 +32,12 @@ struct OrderListView: View {
                                 
                             HStack {
                                 VStack (alignment: .leading) {
+                                    let newPhoneNumber = viewModel.forTrailingZero(Double(customer.phoneNumber) ?? 0)
+                                    
                                     Text("Id: \(customer.id)")
                                     Text("Name: \(customer.name)")
                                     Text("Address: \(customer.address)")
-                                    Text("Phone: \(customer.phoneNumber)")
+                                    Text("Phone: \(newPhoneNumber)")
                                     Text("ID Card: \(customer.idCard)")
                                         .padding(.bottom)
                                     Divider()
@@ -55,7 +58,7 @@ struct OrderListView: View {
                 }
                 
             }
-            .navigationTitle("Order List")
+            .navigationTitle("Customer List")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -80,5 +83,5 @@ struct OrderListView: View {
 }
 
 #Preview {
-    OrderListView()
+    CustomerListView()
 }

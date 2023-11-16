@@ -13,7 +13,7 @@
 		FCB608A22AFEF24A00AD82BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB608A12AFEF24A00AD82BC /* Preview Assets.xcassets */; };
 		FCB608AA2AFEF26A00AD82BC /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608A92AFEF26A00AD82BC /* Vehicle.swift */; };
 		FCB608AC2AFEF44C00AD82BC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608AB2AFEF44C00AD82BC /* Customer.swift */; };
-		FCB608BD2AFF179A00AD82BC /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608BC2AFF179A00AD82BC /* OrderListView.swift */; };
+		FCB608BD2AFF179A00AD82BC /* CustomerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608BC2AFF179A00AD82BC /* CustomerListView.swift */; };
 		FCB608BF2AFF1AE700AD82BC /* AddOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608BE2AFF1AE700AD82BC /* AddOrderViewModel.swift */; };
 		FCB608C12AFF1BFA00AD82BC /* AddOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608C02AFF1BFA00AD82BC /* AddOrderView.swift */; };
 		FCB608C52AFF22CD00AD82BC /* CustomerServerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608C42AFF22CD00AD82BC /* CustomerServerApi.swift */; };
@@ -31,6 +31,7 @@
 		FCB608E92B00084F00AD82BC /* EditCustomerOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608E82B00084F00AD82BC /* EditCustomerOrderView.swift */; };
 		FCB608EC2B000D6C00AD82BC /* VehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608EB2B000D6C00AD82BC /* VehicleType.swift */; };
 		FCB608EE2B000FD600AD82BC /* EditCustomerOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */; };
+		FCD8A23B2B05B37E001D62A6 /* CustomerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD8A23A2B05B37E001D62A6 /* CustomerListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		FCB608A12AFEF24A00AD82BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FCB608A92AFEF26A00AD82BC /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		FCB608AB2AFEF44C00AD82BC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
-		FCB608BC2AFF179A00AD82BC /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		FCB608BC2AFF179A00AD82BC /* CustomerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListView.swift; sourceTree = "<group>"; };
 		FCB608BE2AFF1AE700AD82BC /* AddOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderViewModel.swift; sourceTree = "<group>"; };
 		FCB608C02AFF1BFA00AD82BC /* AddOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderView.swift; sourceTree = "<group>"; };
 		FCB608C42AFF22CD00AD82BC /* CustomerServerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServerApi.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		FCB608E82B00084F00AD82BC /* EditCustomerOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderView.swift; sourceTree = "<group>"; };
 		FCB608EB2B000D6C00AD82BC /* VehicleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleType.swift; sourceTree = "<group>"; };
 		FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCustomerOrderViewModel.swift; sourceTree = "<group>"; };
+		FCD8A23A2B05B37E001D62A6 /* CustomerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,7 @@
 		FCB608AD2AFEF54100AD82BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FCB608BC2AFF179A00AD82BC /* OrderListView.swift */,
+				FCB608BC2AFF179A00AD82BC /* CustomerListView.swift */,
 				FCB608CB2AFF362900AD82BC /* CustomerDetailView.swift */,
 				FCB608E62AFFE3F500AD82BC /* SeeCustomerOrderView.swift */,
 				FCB608CF2AFF532600AD82BC /* EditCustomerView.swift */,
@@ -145,6 +147,7 @@
 				FCB608D12AFF550D00AD82BC /* EditCustomerViewModel.swift */,
 				FCB608D32AFF5BEA00AD82BC /* CustomerDetailViewModel.swift */,
 				FCB608ED2B000FD600AD82BC /* EditCustomerOrderViewModel.swift */,
+				FCD8A23A2B05B37E001D62A6 /* CustomerListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				FCB608C12AFF1BFA00AD82BC /* AddOrderView.swift in Sources */,
 				FCB608D42AFF5BEB00AD82BC /* CustomerDetailViewModel.swift in Sources */,
 				FCB608EE2B000FD600AD82BC /* EditCustomerOrderViewModel.swift in Sources */,
+				FCD8A23B2B05B37E001D62A6 /* CustomerListViewModel.swift in Sources */,
 				FCB608EC2B000D6C00AD82BC /* VehicleType.swift in Sources */,
 				FCB608D02AFF532700AD82BC /* EditCustomerView.swift in Sources */,
 				FCB6089C2AFEF24900AD82BC /* ContentView.swift in Sources */,
@@ -274,7 +278,7 @@
 				FCB608AA2AFEF26A00AD82BC /* Vehicle.swift in Sources */,
 				FCB608AC2AFEF44C00AD82BC /* Customer.swift in Sources */,
 				FCB608BF2AFF1AE700AD82BC /* AddOrderViewModel.swift in Sources */,
-				FCB608BD2AFF179A00AD82BC /* OrderListView.swift in Sources */,
+				FCB608BD2AFF179A00AD82BC /* CustomerListView.swift in Sources */,
 				FCB608DA2AFF7E8D00AD82BC /* VehicleServerResponse.swift in Sources */,
 				FCB608E72AFFE3F500AD82BC /* SeeCustomerOrderView.swift in Sources */,
 				FCB608CC2AFF362900AD82BC /* CustomerDetailView.swift in Sources */,

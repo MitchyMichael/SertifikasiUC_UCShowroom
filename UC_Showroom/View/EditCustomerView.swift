@@ -62,7 +62,7 @@ struct EditCustomerView: View {
                             newCustomerPhoneNumber: newPhoneNumber,
                             newCustomerIdCard: newIdCard)
                         
-                        let newView = OrderListView()
+                        let newView = CustomerListView()
                         UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: newView)
                         
                         dismiss()
