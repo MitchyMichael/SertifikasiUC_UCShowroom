@@ -44,7 +44,7 @@ struct CustomerDetailView: View {
                 
                 // To add vehicle
                 NavigationLink(destination: AddVehicleView(thisCustomerId: Int(customerId) ?? 0)) {
-                    Text("Add Vehicle")
+                    Text("Add Order")
                 }
                 
                 // To see customer's order

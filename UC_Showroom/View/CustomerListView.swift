@@ -19,37 +19,47 @@ struct CustomerListView: View {
                 VStack (alignment: .leading){
                     
                     // Customer List View
-                    ForEach(api.customers) { customer in
-                        
-                        // If clicked ...
-                        NavigationLink(destination: CustomerDetailView(
-                            customerId: customer.id,
-                            customerName: customer.name,
-                            customerAddress: customer.address,
-                            customerPhone: customer.phoneNumber,
-                            customerIdCard: customer.idCard
+                    if api.customers.count > 0 {
+                        ForEach(api.customers) { customer in
+                            
+                            // If clicked ...
+                            NavigationLink(destination: CustomerDetailView(
+                                customerId: customer.id,
+                                customerName: customer.name,
+                                customerAddress: customer.address,
+                                customerPhone: customer.phoneNumber,
+                                customerIdCard: customer.idCard
                             )) {
                                 
-                            HStack {
-                                VStack (alignment: .leading) {
-                                    let newPhoneNumber = viewModel.forTrailingZero(Double(customer.phoneNumber) ?? 0)
-                                    
-                                    Text("Id: \(customer.id)")
-                                    Text("Name: \(customer.name)")
-                                    Text("Address: \(customer.address)")
-                                    Text("Phone: \(newPhoneNumber)")
-                                    Text("ID Card: \(customer.idCard)")
-                                        .padding(.bottom)
-                                    Divider()
+                                HStack {
+                                    VStack (alignment: .leading) {
+                                        let newPhoneNumber = viewModel.forTrailingZero(Double(customer.phoneNumber) ?? 0)
+                                        
+                                        Text("Id: \(customer.id)")
+                                        Text("Name: \(customer.name)")
+                                        Text("Address: \(customer.address)")
+                                        Text("Phone: \(newPhoneNumber)")
+                                        Text("ID Card: \(customer.idCard)")
+                                            .padding(.bottom)
+                                        Divider()
+                                    }
+                                    .padding(.top)
+                                    Spacer()
+                                    Image(systemName: "arrow.right.to.line")
+                                        .foregroundStyle(.blue)
                                 }
-                                .padding(.top)
-                                Spacer()
-                                Image(systemName: "arrow.right.to.line")
-                                    .foregroundStyle(.blue)
-                            }
-                            .foregroundStyle(.black)
+                                .foregroundStyle(.black)
                             }
                             .padding(.horizontal)
+                        }
+                        
+                    // If no customer data
+                    } else {
+                        VStack {
+                            Text("No Customer")
+                                .foregroundStyle(.secondary)
+                                .padding(.top, 200)
+                        }
                     }
                 }
                 .onAppear(){

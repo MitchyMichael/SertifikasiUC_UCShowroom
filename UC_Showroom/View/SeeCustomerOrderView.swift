@@ -17,35 +17,47 @@ struct SeeCustomerOrderView: View {
                 VStack {
                     
                     // Customer Orders List
-                    ForEach(api.vehicles) { vehicle in
-                        HStack {
-                            NavigationLink(destination: EditCustomerOrderView(
-                                newVehicleId: vehicle.id,
-                                newCustomerId: vehicle.customerId,
-                                newType: vehicle.type,
-                                newModel: vehicle.model,
-                                newYear: Int(vehicle.year) ?? 0,
-                                newPassengerCount: Int(vehicle.passengerCount) ?? 0,
-                                newManufacturer: vehicle.manufacturer,
-                                newPrice: vehicle.price)) {
-                                
-                                VStack (alignment: .leading){
-                                    Text("ID: \(vehicle.id)")
-                                    Text("Customer ID: \(vehicle.customerId)")
-                                    Text("Vehicle Type: \(vehicle.type)")
-                                    Text("Model: \(vehicle.model)")
-                                    Text("Year: \(vehicle.year)")
-                                    Text("Passenger Count: \(vehicle.passengerCount)")
-                                    Text("Manufacturer: \(vehicle.manufacturer)")
-                                    Text("Price: \(vehicle.price)")
+                    let totalVehicle = api.vehicles.count
+                    
+                    if totalVehicle > 0 {
+                        ForEach(api.vehicles) { vehicle in
+                            HStack {
+                                NavigationLink(destination: EditCustomerOrderView(
+                                    newVehicleId: vehicle.id,
+                                    newCustomerId: vehicle.customerId,
+                                    newType: vehicle.type,
+                                    newModel: vehicle.model,
+                                    newYear: Int(vehicle.year) ?? 0,
+                                    newPassengerCount: Int(vehicle.passengerCount) ?? 0,
+                                    newManufacturer: vehicle.manufacturer,
+                                    newPrice: vehicle.price)) {
+                                    
+                                    VStack (alignment: .leading){
+                                        Text("ID: \(vehicle.id)")
+                                        Text("Customer ID: \(vehicle.customerId)")
+                                        Text("Vehicle Type: \(vehicle.type)")
+                                        Text("Model: \(vehicle.model)")
+                                        Text("Year: \(vehicle.year)")
+                                        Text("Passenger Count: \(vehicle.passengerCount)")
+                                        Text("Manufacturer: \(vehicle.manufacturer)")
+                                        Text("Price: \(vehicle.price)")
+                                    }
+                                    .foregroundStyle(.black)
                                 }
-                                .foregroundStyle(.black)
+                                Spacer()
+                                Image(systemName: "arrow.right.to.line")
+                                    .foregroundStyle(.blue)
                             }
-                            Spacer()
-                            Image(systemName: "arrow.right.to.line")
-                                .foregroundStyle(.blue)
+                            .padding()
                         }
-                        .padding()
+                        
+                    // If no order
+                    } else {
+                        VStack {
+                            Text("No vehicle ordered")
+                                .padding(.top, 200)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
                 .navigationTitle("Customer Order")
